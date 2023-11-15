@@ -1,4 +1,4 @@
-# test-for-training
+# Testing the use of Sphinx documentation
 
-## This is an example repository.
+## Repository to test building and deploying documentation to GitHub pages. 
 
