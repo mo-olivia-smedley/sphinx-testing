@@ -21,6 +21,13 @@ jobs:
       - name: Sphinx build
         run: make -C docs html
 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: html-docs
+          path: docs/build/html/
+          retention-days: 1
+          if-no-files-found: error
+
   deploy:
     permissions:
       pages: write
@@ -31,6 +38,14 @@ jobs:
     needs: build-docs
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: html-docs
+          
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: "."
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
