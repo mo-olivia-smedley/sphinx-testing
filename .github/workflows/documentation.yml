@@ -24,7 +24,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: html-docs
-          path: docs/build/html/
+          path: docs/_build/html/
           retention-days: 1
           if-no-files-found: error
 
